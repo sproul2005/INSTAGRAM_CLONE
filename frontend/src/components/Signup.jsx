@@ -19,11 +19,15 @@ const Signup = () => {
 }
 
 const registerHandler = async (e) => {
+  e.preventDefault();
+  
+  if (input.password.length < 6) {
+    toast.error("Password must be at least 6 characters");
+    return;
+  }
 
   setLoading(true);
-
-   e.preventDefault();
-   console.log("Registering with:", input);
+  console.log("Registering with:", input);
 
    try{
     setLoading(true);
@@ -86,6 +90,7 @@ const registerHandler = async (e) => {
           type="password"
           name="password"
           value={input.password}
+          minLength="6"
           onChange={changeEventHandler}
           className="focus-visible:ring-transparent my-2"
         />
