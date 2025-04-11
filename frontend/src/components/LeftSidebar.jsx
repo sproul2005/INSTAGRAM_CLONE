@@ -73,7 +73,7 @@ const LeftSidebar = () => {
   return (
     <div className='fixed top-0 z-10 left-0 px-4 border-r border-gray-300 w-[16%] h-screen'>
       <div className='flex flex-col'>
-      <h1 className="my-8 pl-3 font-bold text-xl">LOGO</h1>
+      <h1 className="my-7 pl-2 font-bold text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</h1>
       <div>
       {
         sidebarItems.map((item,index)=>{
@@ -82,7 +82,7 @@ const LeftSidebar = () => {
                 {item.icon}
                 <span>{item.text}</span>
                 {
-                    item.text === "Notifications" && likeNotification.length > 0 && (
+                    item.text === "Notification" && likeNotification.length > 0 && (
                         <Popover>
                             <PopoverTrigger asChild>
                                 <Button size='icon' className="rounded-full h-5 w-5 bg-red-600 hover:bg-red-600 absolute bottom-6 left-6">{likeNotification.length}</Button>
