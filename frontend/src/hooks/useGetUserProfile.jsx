@@ -18,7 +18,7 @@ const useGetUserprofile=(userId)=>{
             }
         }
         fetchUserProfile();
-    },[userId]);
+    },[userId,dispatch]);
 };
 
 export default useGetUserprofile;

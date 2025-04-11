@@ -74,10 +74,6 @@ const Profile = () => {
                 <span>🤯Learn code with Mr.Golu</span>
                 <span>🤯Turing code into fun</span>
                 <span>🤯DM for collaboration</span>
-                {/* <span>😊🇲.🇺.🇳.🇺😊</span>
-                <span>𝗦𝗲𝗿𝗮𝗽𝗵𝗶𝗰</span>
-                <span>|| सर्वस्यापि भवेद्धेतु ||</span>
-                <span>|| मौनं सर्वार्थ साधनम् ||</span> */}
           </div>
         </div>
     </section>

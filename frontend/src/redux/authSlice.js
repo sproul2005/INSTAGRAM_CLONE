@@ -28,6 +28,6 @@ export const {
     setAuthUser,
     setSuggestedUsers,
     setUserProfile,
-    setSelctedUser,
+    setSelectedUser,
 }=authSlice.actions;
 export default authSlice.reducer;

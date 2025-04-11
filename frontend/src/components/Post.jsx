@@ -101,6 +101,17 @@ const Post = ({ post }) => {
     }
   }
 
+  const bookmarkHandler=async()=>{
+    try{
+      const res=await axios.get(`http://localhost:8000/api/v1/post/${post?._id}/bookmark`,{withCredentials:true});
+      if(res.data.success){
+        toast.success(res.data.message);
+      }
+    } catch(error){
+      console.log(error);
+    }
+  }
+
   return (
     <div className='my-8 w-full max-w-sm mx-auto'>
       <div className='flex items-center justify-between'>
@@ -111,7 +122,7 @@ const Post = ({ post }) => {
           </Avatar>
           <div className='flex items-center gap-3'>
              <h1>{post.author?.username}</h1>
-             {user?._id == post.author._id && <Badge variant="secondary">Author</Badge>}
+             {user?._id == post.author._id && <Badge variant="secondary" className="bg-gray-100 text-black">Author</Badge>}
           </div>
           
         </div>
@@ -119,18 +130,16 @@ const Post = ({ post }) => {
           <DialogTrigger asChild>
             <MoreHorizontal className='cursor-pointer' />
           </DialogTrigger>
-          <DialogContent className="w-[90%] max-w-sm p-6 rounded-lg shadow-lg bg-white">
-            <div className="flex flex-col px-40 justify-center">
+          <DialogContent className="flex flex-col items-center text-sm text-center">
+            
             {
               post?.author?._id !== user?._id &&  <button className="text-[#ED4956] bg-white px-6 py-2 w-fit rounded-lg ">Unfollow</button>
             }
-              <br />
               <Button variant="ghost" className="cursor-pointer text-black bg-white w-fit ">Add to favorites</Button>
-              <br />
               {
-                user && user?._id == post?.author._id && <Button onClick={deletePostHandler} variant="ghost" className="cursor-pointer text-black bg-white w-fit ">Delete</Button>
+                user && user?._id == post?.author._id && <Button onClick={deletePostHandler} variant="ghost" className="cursor-pointer text-[#ED4956] bg-white w-fit ">Delete</Button>
               }
-            </div>
+           
           </DialogContent>
         </Dialog>
       </div>
@@ -150,7 +159,7 @@ const Post = ({ post }) => {
           }} size={'24px'} className='cursor-pointer hover:text-gray-600' />
           <Send size={'23px'} className='cursor-pointer hover:text-gray-600' />
         </div>
-        <Bookmark />
+        <Bookmark onClick={bookmarkHandler} className='cursor-pointer hover:text-gray-600'/>
       </div>
       <span className='font-medium block mb-2'>{postLike} likes</span>
       <p>
